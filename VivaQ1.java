@@ -23,7 +23,7 @@ public class VivaQ1 {
             System.out.print("Enter book type code (R/G/M/C/T): ");
             String booktypeStr = sc.next();
             booktype = booktypeStr.charAt(0);
-            System.out.print("Enter borrower: (S for student, T for Staff): ");
+            System.out.print("Enter borrower (S for student, T for Staff): ");
             String borrowerStr = sc.next();
             borrower = borrowerStr.charAt(0);
             System.out.print("Enter number of previous late returns: ");
@@ -59,8 +59,10 @@ public class VivaQ1 {
                         fine = 200;
                     }
                     break;
+
                 default:
                     System.out.println("Invalid book type code.");
+
             }
             if (daysoverdue > 60) {
                 fine = fine + 25;

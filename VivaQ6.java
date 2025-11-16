@@ -113,7 +113,7 @@ public class VivaQ6 {
     public static void placeUnique(boolean[] arr, int count, Random rand) {
         int place = 0;
         while (place < count) {
-            int position = 1 + rand.nextInt(10);// random chest number between 1 and 10
+            int position = rand.nextInt(10) + 1;// random chest number between 1 and 10
             if (!arr[position]) {// check if the position used or not
                 arr[position] = true;// mark chest as having dragon egg or become cursed chest or both(because they
                                      // are done separately)

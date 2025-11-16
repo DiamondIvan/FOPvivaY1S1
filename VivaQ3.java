@@ -1,9 +1,4 @@
 
-/**
- * This program is to check if username are valid and rates password strength.
- * 
- * @author Angel Tan Ke Qin
- */
 package FOPvivaY1S1;
 
 import java.util.Scanner;
@@ -112,6 +107,9 @@ public class VivaQ3 {
                 break;
             }
         }
+        if (!containsUsername)
+            ruleMet++;
+
         if (validName == false) {
             System.out.println("Invalid username.");
         } else if (validName) {

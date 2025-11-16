@@ -1,8 +1,6 @@
 /**
  * This program is a smart digital billing system that automatically calculate taxes,
  * applies discounts, and rewards loyal customers.
- * 
- * @author Angel Tan Ke Qin
  */
 package FOPvivaY1S1;
 
@@ -14,7 +12,7 @@ public class VivaQ2 {
         double price = 0, subtotal = 0, sst = 0;// Initialise
 
         // input price of items
-        System.out.println("Enter item price (0 to finish):");
+        System.out.print("Enter item price (0 to finish):");
         price = cs.nextDouble();
         while (price == 0)// Check if first price is negative or not. If negative, loop until user enter
                           // positive value
@@ -34,12 +32,13 @@ public class VivaQ2 {
 
         // Following input price
         while (price != 0) {
-            System.out.println("Enter item price (0 to finish):");
+            System.out.print("Enter item price (0 to finish):");
             price = cs.nextDouble();
 
             while (price < 0)// quite loop when number enter is positive
             {// Invalid output
                 System.out.println("Invalid amount. Price cannot be negative. Please re-enter.");
+                System.out.print("Enter item price (0 to finish):");
                 price = cs.nextDouble();// Ask to enter again,if still negative,then will continue loop
             }
             subtotal += price;// sum price to total after quite the loop(value positive)
@@ -56,7 +55,7 @@ public class VivaQ2 {
         // total before discount
         double totalBeforeDiscount = subtotal + subtotal * sst;// Total before discount is sum of subtotal and sst
         double discountStu = 0, discountHappyHour = 0, discountWeekend = 0;// Initialise all discount=0
-        cs.nextLine();
+        cs.nextLine();// Clear buffer
 
         // Day of week
         System.out.println("Enter day of week:");
@@ -71,15 +70,16 @@ public class VivaQ2 {
                 || day.equalsIgnoreCase("Saturday")))// Check if day entered is invalid
         {
             System.out.println("Invalid day. Please re-enter.");// prompt user until user enter valid value
+            System.out.print("Enter day of week:");
             day = cs.nextLine().trim();
         }
 
-        System.out.println("Enter hour (24-hour format):");
+        System.out.print("Enter hour (24-hour format):");
         int hour = cs.nextInt();// Read hour from user
         // invalid hour output
         while (hour < 0 || hour > 23)// Invalid output
         {
-            System.out.println("Invalid hour. Hour should be 0-23. Please re-enter.");
+            System.out.print("Invalid hour. Hour should be 0-23. Please re-enter:");
             hour = cs.nextInt();
         }
         // Student Saver Discount and Happy Hour Discount
@@ -92,7 +92,7 @@ public class VivaQ2 {
             if (totalBeforeDiscount > 25)// Student Saver Discount 10%
                 discountStu = totalBeforeDiscount * 0.1;
             if (hour < 17 && hour >= 15)// Happy Hour Discount 5%
-                discountHappyHour = (totalBeforeDiscount - discountStu) * 0.05;
+                discountHappyHour = (totalBeforeDiscount) * 0.05;
         }
 
         // Weekend Combo Discount
