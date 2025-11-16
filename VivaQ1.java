@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class VivaQ1 {
     public static void main(String[] args) {
 
+        // Declare variables
         int n;
         int daysoverdue = 0;
         char booktype = 0;
@@ -15,6 +16,7 @@ public class VivaQ1 {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number of cases: ");
         n = sc.nextInt();
+        // Loop for each case
         for (int i = 0; i < n; i++) {
             System.out.print("Enter days overdue: ");
             daysoverdue = sc.nextInt();
@@ -27,6 +29,7 @@ public class VivaQ1 {
             System.out.print("Enter number of previous late returns: ");
             latereturns = sc.nextInt();
 
+            // Calculate fine based on book type and conditions
             switch (booktype) {
                 case 'R':
                     fine = 100;
