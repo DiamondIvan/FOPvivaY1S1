@@ -10,15 +10,19 @@ public class VivaQ5 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        // allow use to input message
         System.out.print("Enter Original Message: ");
         String msg = sc.nextLine();
+        // create array to hold decimal value of character
         int[] decimal = new int[msg.length()];
         String[] binary = new String[msg.length()];
         int[] convert = new int[msg.length()];
         int[] end = new int[msg.length()];
+        // convert each character to decimal
         for (int i = 0; i < msg.length(); i++) {
             decimal[i] = msg.charAt(i);
         }
+        // convert decimal to binary
         for (int i = 0; i < decimal.length; i++) {
             String word = "";
             for (int j = 0; j < 8; j++) {
@@ -29,16 +33,18 @@ public class VivaQ5 {
                     word = word + "0";
                 }
                 binary[i] = word;
-                convert[i] = Integer.parseInt(binary[i]);
+                convert[i] = Integer.parseInt(binary[i]); // convert binary string to integer
 
             }
         }
 
         System.out.println("Encoded Message: ");
+        // invert binary digits
         for (int x = 0; x < decimal.length; x++) {
             convert[x] = 11111111 - convert[x];
 
         }
+        // convert inverted binary to decimal
         for (int y = 0; y < end.length; y++) {
             int sum = 0;
             for (int j = 0; j < 8; j++) {
