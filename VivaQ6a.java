@@ -62,16 +62,22 @@ public class VivaQ6a {
                 System.out.println("No egg here,keep searching!");
 
                 // Use for loop to check distance
-                int nearest = 9999;
-                int[] eggs = { egg1, egg2, egg3 };
-                boolean[] found = { egg1Found, egg2Found, egg3Found };
+                int nearest = Integer.MAX_VALUE;
 
-                for (int i = 0; i < 3; i++) {
-                    if (!found[i]) {
-                        int d = Math.abs(guess - eggs[i]);
-                        if (d < nearest)
-                            nearest = d;
-                    }
+                if (!egg1Found) {
+                    int d = Math.abs(guess - egg1);
+                    if (d < nearest)
+                        nearest = d;
+                }
+                if (!egg2Found) {
+                    int d = Math.abs(guess - egg2);
+                    if (d < nearest)
+                        nearest = d;
+                }
+                if (!egg3Found) {
+                    int d = Math.abs(guess - egg3);
+                    if (d < nearest)
+                        nearest = d;
                 }
 
                 if (nearest <= 3) {
