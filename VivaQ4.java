@@ -35,20 +35,22 @@ public class VivaQ4 {
 
         // calculate sum
         int sum = 0;
-        for (int i = 0; i < icNum.length(); i++) {
+        int i = 0;
+        while (i < icNum.length()) {
             sum = sum + icNum.charAt(i) - '0';
+            i++;
         }
 
         // month classification
         boolean islongMonth = (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10
                 || month == 12);
         boolean lucky = false;
-        if (gender.equals("Male")) {
-            if (sum % 5 == 0 && !islongMonth) {
+        if (gender.equals("Female")) {
+            if (sum % 7 == 0 && islongMonth) {
                 lucky = true;
             }
         } else {
-            if (sum % 7 == 0 && islongMonth) {
+            if (sum % 5 == 0 && !islongMonth) {
                 lucky = true;
             }
         }

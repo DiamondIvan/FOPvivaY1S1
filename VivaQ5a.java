@@ -15,10 +15,10 @@ public class VivaQ5a {
 
         for (int i = 0; i < msg.length(); i++) {
 
-            // 1. CHAR → DECIMAL
+            // 1. CHAR to DECIMAL
             int decimal = msg.charAt(i);
 
-            // 2. DECIMAL → BINARY (8 BITS)
+            // 2. DECIMAL to BINARY
             String binary = "";
             int temp = decimal;
             for (int bit = 7; bit >= 0; bit--) {
