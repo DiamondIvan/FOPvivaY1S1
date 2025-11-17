@@ -4,32 +4,44 @@ import java.util.Scanner;
 
 public class VivaQ1 {
     public static void main(String[] args) {
-
-        // Declare variables
+        // Variables
         int n;
         int daysoverdue = 0;
         char booktype = 0;
         char borrower = 0;
         int latereturns = 0;
         double fine = 0;
+        String booktypeStr;
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number of cases: ");
         n = sc.nextInt();
-        // Loop for each case
+        // Process each case
         for (int i = 0; i < n; i++) {
+
             System.out.print("Enter days overdue: ");
             daysoverdue = sc.nextInt();
-            System.out.print("Enter book type code (R/G/M/C/T): ");
-            String booktypeStr = sc.next();
-            booktype = booktypeStr.charAt(0);
+
+            // VALIDATE BOOK TYPE
+            while (true) {
+                System.out.print("Enter book type code (R/G/M/C/T): ");
+                booktypeStr = sc.next().toUpperCase();
+                booktype = booktypeStr.charAt(0);
+
+                if (booktype == 'R' || booktype == 'G' || booktype == 'M' || booktype == 'C' || booktype == 'T') {
+                    break;
+                } else {
+                    System.out.println("Invalid book type code. Please re-enter.");
+                }
+            }
+
             System.out.print("Enter borrower (S for student, T for Staff): ");
-            String borrowerStr = sc.next();
-            borrower = borrowerStr.charAt(0);
+            borrower = sc.next().toUpperCase().charAt(0);
+
             System.out.print("Enter number of previous late returns: ");
             latereturns = sc.nextInt();
 
-            // Calculate fine based on book type and conditions
+            // Fine calculation
             switch (booktype) {
                 case 'R':
                     fine = 100;
@@ -38,7 +50,7 @@ public class VivaQ1 {
                     if (daysoverdue >= 1 && daysoverdue <= 7) {
                         fine = daysoverdue * 0.5;
                     } else if (daysoverdue >= 8 && daysoverdue <= 30) {
-                        fine = 3.5 + (daysoverdue - 7) * 1;
+                        fine = 3.5 + (daysoverdue - 7);
                     } else if (daysoverdue > 30) {
                         fine = 27.5 + (daysoverdue - 30) * 5;
                     }
@@ -59,25 +71,21 @@ public class VivaQ1 {
                         fine = 200;
                     }
                     break;
+            }
 
-                default:
-                    System.out.println("Invalid book type code.");
+            if (daysoverdue > 60)
+                fine += 25;
+            if (latereturns >= 3)
+                fine += 10;
+            if (borrower == 'T')
+                fine *= 0.8;
+            else if (latereturns == 0 && daysoverdue <= 3)
+                fine *= 0.5;
 
-            }
-            if (daysoverdue > 60) {
-                fine = fine + 25;
-            }
-            if (latereturns >= 3) {
-                fine = fine + 10;
-            }
-            if (borrower == 'T') {
-                fine = fine * 0.8;
-            } else if (latereturns == 0 && daysoverdue <= 3) {
-                fine = fine * 0.5;
-            }
             System.out.println("--- Case " + (i + 1) + " ---");
             System.out.printf("Total fine : RM %.2f%n", fine);
         }
+
         sc.close();
     }
 }

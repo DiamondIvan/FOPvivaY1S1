@@ -12,7 +12,7 @@ public class VivaQ3 {
         Scanner cs = new Scanner(System.in);
 
         // Username
-        System.out.println("Enter username:");
+        System.out.print("Enter username:");
         String username = cs.nextLine();
         boolean validName = true;
         char firstLetter = username.charAt(0);
@@ -31,7 +31,7 @@ public class VivaQ3 {
         }
 
         // Password
-        System.out.println("Enter password:");
+        System.out.print("Enter password:");
         String pw = cs.nextLine();
         int ruleMet = 0;
 
@@ -111,7 +111,7 @@ public class VivaQ3 {
             ruleMet++;
 
         if (validName == false) {
-            System.out.println("Invalid username.");
+            System.out.print("Invalid username.");
         } else if (validName) {
             // Password strength
             System.out.print("Password Strength: ");
