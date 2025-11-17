@@ -83,13 +83,13 @@ public class VivaQ6 {
             System.out.print("Guess a chest(1-10): ");
             if (sc.hasNextInt()) {
                 int v = sc.nextInt();
-                if (v >= 1 && v <= 10) {// valid the chest number
+                if (v >= 1 && v <= 10) // valid the chest number
                     return v;
-                } else {
-                    System.out.println(
-                            "Invalid input,Please enter an integer between 1 and 10. Enter anything to start the quest again.");
-                    sc.next();// clear wrong input
-                }
+            } else {
+                System.out.println(
+                        "Invalid input,Please enter an integer between 1 and 10. Enter anything to start the quest again.");
+                sc.next();// clear wrong input
+
             }
         }
     }
